@@ -5,7 +5,14 @@
   "trailingComma": "es5",
   "bracketSpacing": true,
   "semi": false,
-  "endOfLine": "lf",
+  "endOfLine": "auto",
   "quoteProps": "as-needed",
-  "useTabs": false
+  "useTabs": false,
+  "extends": ["prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
+  }
 }

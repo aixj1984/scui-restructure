@@ -19,6 +19,12 @@ module.exports = {
     'no-return-await': ['warn'],
     'no-multiple-empty-lines': ['warn'],
     eqeqeq: ['error', 'always'],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
   env: {
     browser: true,
