@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * @description 自动import导入所有 api 模块
  */

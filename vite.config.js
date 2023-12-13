@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/static/',
+  base: process.env.NODE_ENV === 'production' ? '/static/' : '',
   plugins: [vue()],
   resolve: {
     alias: {

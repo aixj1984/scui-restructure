@@ -102,7 +102,9 @@ export default {
             //建立index
             item.index &&
               item.index.forEach((ind) => {
-                table.createIndex(ind.name, ind.key, { unique: false })
+                table.createIndex(ind.name, ind.key, {
+                  unique: false,
+                })
               })
           })
         }),
