@@ -110,10 +110,16 @@ export default {
       }
         */
 
-      this.$TOOL.cookie.set('TOKEN', 'tttttt', {
+      this.$TOOL.cookie.set('TOKEN', 'SCUI.Administrator.Auth', {
         expires: this.form.autologin ? 24 * 60 * 60 : 0,
       })
-      this.$TOOL.data.set('USER_INFO', { role: 'supper' })
+
+      this.$TOOL.data.set('USER_INFO', {
+        userId: '1',
+        userName: 'Administrator',
+        dashboard: '0',
+        role: 'supper',
+      })
 
       this.$router.replace({
         path: '/',
