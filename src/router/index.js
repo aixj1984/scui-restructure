@@ -7,6 +7,7 @@ import 'nprogress/nprogress.css'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { afterEach, beforeEach } from './scrollBehavior'
 import systemRouter from './systemRouter'
+import { asyncRoutes } from '@/router/routers'
 
 // 匹配views里面所有的.vue文件
 const modules = import.meta.glob('./../views/**/*.vue')
@@ -42,7 +43,7 @@ router.beforeEach(async (to, from, next) => {
   //动态标题
   document.title = to.meta.title ? `${to.meta.title} - ${config.APP_NAME}` : `${config.APP_NAME}`
 
-  let token = tool.cookie.get('TOKEN')
+  let token = tool.data.get('TOKEN')
 
   if (to.path === '/login') {
     //删除路由(替换当前layout路由)
@@ -73,11 +74,22 @@ router.beforeEach(async (to, from, next) => {
   //加载动态/静态路由
   if (!isGetRouter) {
     let apiMenu = tool.data.get('MENU') || []
+
     let userInfo = tool.data.get('USER_INFO')
+
+    if (!userInfo.role) {
+      userInfo.role = 'normal'
+    }
+
     let userMenu = treeFilter(userRoutes, (node) => {
-      return node.meta.role ? node.meta.role.filter((item) => userInfo.role.indexOf(item) > -1).length > 0 : true
+      return node.meta.roles ? node.meta.roles.filter((item) => userInfo.role.indexOf(item) > -1).length > 0 : true
     })
-    let menu = [...userMenu, ...apiMenu]
+
+    let asyncMenu = treeFilter(asyncRoutes, (node) => {
+      return node.meta.roles ? node.meta.roles.filter((item) => userInfo.role.indexOf(item) > -1).length > 0 : true
+    })
+
+    let menu = [...userMenu, ...apiMenu, ...asyncMenu]
     var menuRouter = filterAsyncRouter(menu)
     menuRouter = flatAsyncRoutes(menuRouter)
     menuRouter.forEach((item) => {
@@ -110,10 +122,19 @@ router.onError((error) => {
 router.sc_getMenu = () => {
   var apiMenu = tool.data.get('MENU') || []
   let userInfo = tool.data.get('USER_INFO')
+  if (!userInfo.role) {
+    userInfo.role = 'normal'
+  }
   let userMenu = treeFilter(userRoutes, (node) => {
-    return node.meta.role ? node.meta.role.filter((item) => userInfo.role.indexOf(item) > -1).length > 0 : true
+    return node.meta.roles ? node.meta.roles.filter((item) => userInfo.role.indexOf(item) > -1).length > 0 : true
   })
-  var menu = [...userMenu, ...apiMenu]
+
+  let asyncMenu = treeFilter(asyncRoutes, (node) => {
+    return node.meta.roles ? node.meta.roles.filter((item) => userInfo.role.indexOf(item) > -1).length > 0 : true
+  })
+
+  let menu = [...userMenu, ...apiMenu, ...asyncMenu]
+
   return menu
 }
 

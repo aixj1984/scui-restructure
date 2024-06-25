@@ -14,7 +14,14 @@ const DEFAULT_CONFIG = {
   CORE_VER: '1.6.9',
 
   //接口地址
-  API_URL: '/api',
+  API_URL: import.meta.env.VITE_NODE_ENV === 'development' && import.meta.env.VUE_APP_PROXY === 'true' ? '' : import.meta.env.VITE_APP_API_BASEURL || '',
+
+  BASE_URL: {
+    dev: 'http://127.0.0.1:8092/',
+    //dev: 'http://47.102.158.134:8094/',
+    pro: '/',
+    pub: 'http://127.0.0.1:/',
+  },
 
   //请求超时
   TIMEOUT: 10000,

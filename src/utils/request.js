@@ -4,7 +4,8 @@ import tool from '@/utils/tool'
 import axios from 'axios'
 import { ElMessageBox, ElNotification } from 'element-plus'
 
-axios.defaults.baseURL = ''
+axios.defaults.baseURL = (import.meta.env.VITE_NODE_ENV === 'production' ? sysConfig.BASE_URL.pro : import.meta.env.VITE_NODE_ENV === 'pubilc' ? sysConfig.BASE_URL.pub : sysConfig.BASE_URL.dev) + sysConfig.API_URL
+axios.defaults.headers = { 'Content-Type': 'application/json' }
 
 axios.defaults.timeout = sysConfig.TIMEOUT
 

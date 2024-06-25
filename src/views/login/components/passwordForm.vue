@@ -72,6 +72,7 @@ export default {
         password: this.$TOOL.crypto.MD5(this.form.password),
       }
       //获取token
+      /*
       var user = await this.$API.auth.token.post(data)
       if (user.code === 200) {
         this.$TOOL.cookie.set('TOKEN', user.data.token, {
@@ -107,6 +108,12 @@ export default {
         this.$message.warning(menu.message)
         return false
       }
+        */
+
+      this.$TOOL.cookie.set('TOKEN', 'tttttt', {
+        expires: this.form.autologin ? 24 * 60 * 60 : 0,
+      })
+      this.$TOOL.data.set('USER_INFO', { role: 'supper' })
 
       this.$router.replace({
         path: '/',
