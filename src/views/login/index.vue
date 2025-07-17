@@ -79,6 +79,8 @@
 import passwordForm from './components/passwordForm'
 import phoneForm from './components/phoneForm'
 
+import { messages } from '@/locales/index'
+
 export default {
   components: {
     passwordForm,
@@ -92,12 +94,272 @@ export default {
       },
       lang: [
         {
-          name: '简体中文',
-          value: 'zh-cn',
+          name: 'Afrikaans',
+          value: 'af',
+        },
+        {
+          name: 'العربية (مصر)',
+          value: 'ar-eg',
+        },
+        {
+          name: 'العربية',
+          value: 'ar',
+        },
+        {
+          name: 'Azərbaycanca',
+          value: 'az',
+        },
+        {
+          name: 'Български',
+          value: 'bg',
+        },
+        {
+          name: 'বাংলা',
+          value: 'bn',
+        },
+        {
+          name: 'Català',
+          value: 'ca',
+        },
+        {
+          name: 'کوردی',
+          value: 'ckb',
+        },
+        {
+          name: 'Čeština',
+          value: 'cs',
+        },
+        {
+          name: 'Dansk',
+          value: 'da',
+        },
+        {
+          name: 'Deutsch',
+          value: 'de',
+        },
+        {
+          name: 'Ελληνικά',
+          value: 'el',
         },
         {
           name: 'English',
           value: 'en',
+        },
+        {
+          name: 'Esperanto',
+          value: 'eo',
+        },
+        {
+          name: 'Español',
+          value: 'es',
+        },
+        {
+          name: 'Eesti',
+          value: 'et',
+        },
+        {
+          name: 'Euskara',
+          value: 'eu',
+        },
+        {
+          name: 'فارسی',
+          value: 'fa',
+        },
+        {
+          name: 'Suomi',
+          value: 'fi',
+        },
+        {
+          name: 'Français',
+          value: 'fr',
+        },
+        {
+          name: 'עברית',
+          value: 'he',
+        },
+        {
+          name: 'हिन्दी',
+          value: 'hi',
+        },
+        {
+          name: 'Hrvatski',
+          value: 'hr',
+        },
+        {
+          name: 'Magyar',
+          value: 'hu',
+        },
+        {
+          name: 'Հայերեն (Հայաստան)',
+          value: 'hy-am',
+        },
+        {
+          name: 'Bahasa Indonesia',
+          value: 'id',
+        },
+        {
+          name: 'Italiano',
+          value: 'it',
+        },
+        {
+          name: '日本語',
+          value: 'ja',
+        },
+        {
+          name: 'Қазақша',
+          value: 'kk',
+        },
+        {
+          name: 'ភាសាខ្មែរ',
+          value: 'km',
+        },
+        {
+          name: '한국어',
+          value: 'ko',
+        },
+        {
+          name: 'Kurdî',
+          value: 'ku',
+        },
+        {
+          name: 'Кыргызча',
+          value: 'ky',
+        },
+        {
+          name: 'ລາວ',
+          value: 'lo',
+        },
+        {
+          name: 'Lietuvių',
+          value: 'lt',
+        },
+        {
+          name: 'Latviešu',
+          value: 'lv',
+        },
+        {
+          name: 'Malagasy',
+          value: 'mg',
+        },
+        {
+          name: 'Монгол',
+          value: 'mn',
+        },
+        {
+          name: 'Bahasa Melayu',
+          value: 'ms',
+        },
+        {
+          name: 'မြန်မာ',
+          value: 'my',
+        },
+        {
+          name: 'Norsk Bokmål (Norge)',
+          value: 'nb-no',
+        },
+        {
+          name: 'Nederlands',
+          value: 'nl',
+        },
+        {
+          name: 'Norsk',
+          value: 'no',
+        },
+        {
+          name: 'ਪੰਜਾਬੀ',
+          value: 'pa',
+        },
+        {
+          name: 'Polski',
+          value: 'pl',
+        },
+        {
+          name: 'Português (Brasil)',
+          value: 'pt-br',
+        },
+        {
+          name: 'Português',
+          value: 'pt',
+        },
+        {
+          name: 'Română',
+          value: 'ro',
+        },
+        {
+          name: 'Русский',
+          value: 'ru',
+        },
+        {
+          name: 'Slovenčina',
+          value: 'sk',
+        },
+        {
+          name: 'Slovenščina',
+          value: 'sl',
+        },
+        {
+          name: 'Српски',
+          value: 'sr',
+        },
+        {
+          name: 'Svenska',
+          value: 'sv',
+        },
+        {
+          name: 'Kiswahili',
+          value: 'sw',
+        },
+        {
+          name: 'தமிழ்',
+          value: 'ta',
+        },
+        {
+          name: 'తెలుగు',
+          value: 'te',
+        },
+        {
+          name: 'ไทย',
+          value: 'th',
+        },
+        {
+          name: 'Türkmençe',
+          value: 'tk',
+        },
+        {
+          name: 'Türkçe',
+          value: 'tr',
+        },
+        {
+          name: 'ئۇيغۇرچە (جۇڭگو)',
+          value: 'ug-cn',
+        },
+        {
+          name: 'Українська',
+          value: 'uk',
+        },
+        {
+          name: 'Oʻzbekcha (Oʻzbekiston)',
+          value: 'uz-uz',
+        },
+        {
+          name: 'Tiếng Việt',
+          value: 'vi',
+        },
+        {
+          name: '简体中文',
+          value: 'zh-cn',
+        },
+        {
+          name: '繁體中文 (台灣)',
+          value: 'zh-tw',
+        },
+        {
+          name: '繁體中文 (香港)',
+          value: 'zh-hk',
+        },
+        {
+          name: '繁體中文 (澳門)',
+          value: 'zh-mo',
         },
       ],
       WechatLoginCode: '',
@@ -136,8 +398,14 @@ export default {
     configDark() {
       this.config.dark = this.config.dark ? false : true
     },
+    getLang(lang) {
+      const availableLangs = Object.keys(messages)
+      // 完全匹配 (zh-cn)
+      if (availableLangs.includes(lang)) return lang
+      return 'zh-cn'
+    },
     configLang(command) {
-      this.config.lang = command.value
+      this.config.lang = this.getLang(command.value)
     },
     wechatLogin() {
       this.showWechatLogin = true
@@ -350,6 +618,13 @@ export default {
   bottom: 0;
   text-align: center;
   background: var(--el-mask-color);
+}
+
+/* 推荐使用 max-height + 滚动条方案 */
+.el-dropdown-menu {
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 5px 0; /* 调整内边距 */
 }
 
 @media (max-width: 1200px) {
